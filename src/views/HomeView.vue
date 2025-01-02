@@ -1,9 +1,7 @@
 <script setup>
-import TheWelcome from '../components/TheWelcome.vue'
+import TheWelcome from '../components/TheWelcome.vue';
 </script>
 
 <template>
-  <main>
-    <TheWelcome />
-  </main>
+	<h1 class="text-3xl text-center py-5">Home - Page</h1>
 </template>
