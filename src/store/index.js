@@ -1,6 +1,8 @@
 import apiClient from '@/axios';
 import { createStore } from 'vuex';
+import { useToast } from 'vue-toastification';
 
+const toast = useToast();
 // Create a new store instance.
 const store = createStore({
 	state: {
@@ -41,6 +43,7 @@ const store = createStore({
 			}
 			const { data } = response;
 			commit('setJobs', data);
+			// toast.success('jobs successfully load from api!');
 			try {
 			} catch (error) {
 				console.log(`Unable to fetch todos - ${error?.message}`);
