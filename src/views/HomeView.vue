@@ -4,12 +4,11 @@ import TheWelcome from '../components/TheWelcome.vue';
 import { useStore } from 'vuex';
 import Navbar from '@/components/Navbar.vue';
 import Hero from '@/components/Hero.vue';
-import { useToast } from 'vue-toastification';
+
 import JobListings from '@/components/JobListings.vue';
 // Access the Vuex store
 const store = useStore();
 // Get toast interface
-const toast = useToast();
 
 // Access state using computed properties
 const jobs = computed(() => store.state.jobs);
@@ -19,13 +18,7 @@ const fetchJobs = () => store.dispatch('getJobs');
 
 // Fetch jobs when the component is mounted
 onMounted(() => {
-	// Use it!
-	// toast("I'm a toast!");
-	// fetchJobs();
-	// or with options
-	// toast.success('My toast content', {
-	// 	timeout: 2000,
-	// });
+	fetchJobs();
 	// console.log(jobs.value);
 });
 </script>
@@ -33,5 +26,8 @@ onMounted(() => {
 <template>
 	<Navbar />
 	<Hero />
+	<div class="card">
+		<h3 class="py-3 text-center text-2xl">Total jobs - {{ jobs.length }}</h3>
+	</div>
 	<JobListings :limit="3" :showButton="true" />
 </template>
