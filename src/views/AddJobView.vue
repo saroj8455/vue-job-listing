@@ -3,7 +3,8 @@ import router from '@/router';
 import { reactive } from 'vue';
 import { useToast } from 'vue-toastification';
 import axios from 'axios';
-
+import { useStore } from 'vuex';
+import { ActionTypes } from '@/store';
 const form = reactive({
 	type: 'Full-Time',
 	title: '',
@@ -18,6 +19,7 @@ const form = reactive({
 	},
 });
 
+const store = useStore();
 const toast = useToast();
 
 const handleSubmit = async () => {
@@ -35,7 +37,13 @@ const handleSubmit = async () => {
 		},
 	};
 
-	console.log(newJob);
+	// console.log(newJob);
+	try {
+		await store.dispatch(ActionTypes.CREATE_JOB, newJob);
+	} catch (error) {
+		console.error('Error fetching job', error);
+		toast.error('Job Was Not Added');
+	}
 
 	// try {
 	// 	const response = await axios.post('/api/jobs', newJob);

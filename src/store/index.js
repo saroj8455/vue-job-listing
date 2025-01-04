@@ -1,6 +1,17 @@
 import apiClient from '@/axios';
 import { createStore } from 'vuex';
 import { useToast } from 'vue-toastification';
+import { MutationTypes } from './mutation-types';
+import router from '@/router';
+
+export const ActionTypes = {
+	// CRUD operations for jobs
+	CREATE_JOB: 'createJob', // Action for creating a new job
+	FETCH_JOBS: 'fetchJobs', // Action for fetching a list of jobs
+	FETCH_JOB_BY_ID: 'fetchJobById', // Action for fetching a single job by ID
+	UPDATE_JOB: 'updateJob', // Action for updating an existing job
+	DELETE_JOB: 'deleteJob', // Action for deleting a job
+};
 
 const toast = useToast();
 // Create a new store instance.
@@ -17,8 +28,11 @@ const store = createStore({
 		decrement(state) {
 			state.count--;
 		},
-		setJobs(state, jobList) {
+		[MutationTypes.SET_JOBS](state, jobList) {
 			state.jobs = jobList;
+		},
+		[MutationTypes.ADD_JOB](state, newJob) {
+			state.jobs.push(newJob);
 		},
 	},
 	actions: {
@@ -36,20 +50,40 @@ const store = createStore({
 		},
 		async getJobs({ commit }) {
 			// Example use case: Making an API call
-			const response = await apiClient.get('/');
-			if (response.status !== 200) {
-				console.log(response);
-				throw new Error(`${response.message}`);
-			}
-			const { data } = response;
-			commit('setJobs', data);
-			// toast.success('jobs successfully load from api!');
 			try {
+				const response = await apiClient.get('/');
+				if (response.status !== 200) {
+					console.log(response);
+					throw new Error(`${response.message}`);
+				}
+				const { data } = response;
+				commit(MutationTypes.SET_JOBS, data);
+				// toast.success('jobs successfully load from api!');
 			} catch (error) {
 				console.log(`Unable to fetch todos - ${error?.message}`);
 			}
 		},
+		async [ActionTypes.CREATE_JOB]({ commit }, newJob) {
+			try {
+				// Example use case: Making an API call
+				const response = await apiClient.post('/', newJob);
+				if (response.status !== 201) {
+					console.log(response);
+					throw new Error(`${response.message}`);
+				}
+				const { data } = response;
+				commit(MutationTypes.ADD_JOB, data);
+				toast.success('Job Added Successfully');
+				console.log('job id', response.data.id);
+
+				router.push(`/jobs/${data.id}`);
+			} catch (error) {
+				toast.error(`Job Was Not Added - - ${error?.message}`);
+				console.log(`Job Was Not Added - - ${error?.message}`);
+			}
+		},
 	},
+
 	getters: {
 		doubleCount(state) {
 			return state.count * 2;
