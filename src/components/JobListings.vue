@@ -4,7 +4,6 @@ import JobListing from './JobListing.vue';
 import { reactive, defineProps, onMounted, computed } from 'vue';
 import PulseLoader from 'vue-spinner/src/PulseLoader.vue';
 import { useStore } from 'vuex';
-// import axios from 'axios';
 
 defineProps({
 	limit: Number,
@@ -29,7 +28,7 @@ const state = reactive({
 
 onMounted(async () => {
 	try {
-		fetchJobs();
+		await fetchJobs();
 	} catch (error) {
 		console.error('Error fetching jobs', error);
 	} finally {

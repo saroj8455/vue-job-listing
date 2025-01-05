@@ -57,18 +57,18 @@
       }
     },
     {
-      "id": "5",
       "title": "Full Stack Vue Developer",
       "type": "Full-Time",
-      "description": "Exciting opportunity for a Full-Time Front-End Developer in bustling Atlanta, GA. We are seeking a talented individual with a passion for building elegant and scalable web applications. Join our team and make an impact!",
       "location": "Atlanta, GA",
+      "description": "Exciting opportunity for a Full-Time Front-End Developer in bustling Atlanta, GA. We are seeking a talented individual with a passion for building elegant and scalable web applications. Join our team and make an impact!",
       "salary": "$90K - $100K",
       "company": {
         "name": "Browning Technologies",
         "description": "Browning Technologies is a rapidly growing technology company specializing in e-commerce solutions. We offer a dynamic and collaborative work environment where employees are encouraged to think creatively and innovate.",
         "contactEmail": "contact@consecteturadipisicing.com",
-        "contactPhone": "555-555-5555"
-      }
+        "contactPhone": "555-555-5557"
+      },
+      "id": "5"
     },
     {
       "id": "6",
@@ -97,6 +97,90 @@
         "contactPhone": "555-555-4444"
       },
       "id": "7"
+    },
+    {
+      "id": "1d4f",
+      "title": "Mobile iOS Engineer",
+      "type": "Full-Time",
+      "location": "Bhubaneswar",
+      "description": "A mobile iOS developer required",
+      "salary": "$70K - $80K",
+      "company": {
+        "name": "NISUM",
+        "description": "Nisum Bhubaneswar",
+        "contactEmail": "test@nisum.com",
+        "contactPhone": "7777-9087-1111"
+      }
+    },
+    {
+      "id": "4dc4",
+      "title": "Android Devloper",
+      "type": "Full-Time",
+      "location": "Bhubaneswar",
+      "description": "Android developer required",
+      "salary": "$70K - $80K",
+      "company": {
+        "name": "NISUM",
+        "description": "Nisum bhubaneswar",
+        "contactEmail": "test@nisum.com",
+        "contactPhone": "8887-9807-2222"
+      }
+    },
+    {
+      "id": "016e",
+      "title": "TEst",
+      "type": "Full-Time",
+      "location": "test",
+      "description": "test",
+      "salary": "$50K - $60K",
+      "company": {
+        "name": "test",
+        "description": "test",
+        "contactEmail": "test@test.com",
+        "contactPhone": "7890-2345-3456"
+      }
+    },
+    {
+      "id": "7158",
+      "title": "test",
+      "type": "Full-Time",
+      "location": "test",
+      "description": "test",
+      "salary": "$60K - $70K",
+      "company": {
+        "name": "test",
+        "description": "test",
+        "contactEmail": "twst@test.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "af46",
+      "title": "test",
+      "type": "Full-Time",
+      "location": "hjhj",
+      "description": "test",
+      "salary": "$60K - $70K",
+      "company": {
+        "name": "hjhjh",
+        "description": "hjhj",
+        "contactEmail": "test@gmail.com",
+        "contactPhone": ""
+      }
+    },
+    {
+      "id": "1cea",
+      "title": "QA- Mobile",
+      "type": "Full-Time",
+      "location": "BBSR",
+      "description": "mobile qa",
+      "salary": "$50K - $60K",
+      "company": {
+        "name": "Nisum",
+        "description": "mobile qa",
+        "contactEmail": "nisum@test.com",
+        "contactPhone": "6789-0987-1111"
+      }
     }
   ],
   "posts": [
